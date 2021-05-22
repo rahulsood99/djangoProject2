@@ -45,8 +45,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'djangoProject2',
-    'rest_framework'
+    'djangoProject2.apps.RootConfig',
+    # 'djangoProject2.books.BookConfig',
+    'rest_framework',
+    'books',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -64,7 +67,8 @@ ROOT_URLCONF = 'djangoProject2.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR + '/' + 'templates'],
+        # 'DIRS': [BASE_DIR + '/' + 'templates' ],
+        'DIRS': [os.path.join(BASE_DIR, 'static', 'templates'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,8 +133,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 STATIC_URL = '/static/'
 
+
+MEDIA_ROOT = (os.path.join(BASE_DIR, 'media'))
+MEDIA_URL = '/media/'
 
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [

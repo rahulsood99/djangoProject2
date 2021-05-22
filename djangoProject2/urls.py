@@ -17,6 +17,10 @@ from django.contrib import admin
 from rest_framework import routers
 from django.urls import include, path
 from . import views
+from books import views as bookviews
+
+from django.conf import settings
+from django.conf.urls.static import static
 
 router = routers.DefaultRouter()
 
@@ -24,7 +28,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('api/', views.api, name='api'),
     # path('', include(router.urls)),
+    path('books/',include('books.urls')),
     path('', views.index, name='index'),
-    path('<int:question_id>', views.detail, name='detail'),
+    # path('books/upload/', bookviews.upload_book, name='upload_book'),
+    # path('<int:question_id>', views.detail, name='detail'),
     path('<int:question_id>/results/', views.results, name='results'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
