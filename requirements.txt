@@ -1,0 +1,9 @@
+certifi==2020.12.5
+Django==2.2.5
+django-crispy-forms==1.11.2
+djangorestframework @ file:///home/conda/feedstock_root/build_artifacts/djangorestframework_1616757768152/work
+olefile==0.46
+Pillow @ file:///C:/ci/pillow_1617386325740/work
+pytz @ file:///tmp/build/80754af9/pytz_1612215392582/work
+sqlparse @ file:///tmp/build/80754af9/sqlparse_1602184451250/work
+wincertstore==0.2
